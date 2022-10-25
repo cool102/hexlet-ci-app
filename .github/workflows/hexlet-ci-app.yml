@@ -1,0 +1,14 @@
+name: hexlet-ci-app
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: do setup
+        run: make setup
+      - name: do start
+        run: make start
+      - name: do test
+        run: make test
+      - name: do checkstyle
+        run: make lint
