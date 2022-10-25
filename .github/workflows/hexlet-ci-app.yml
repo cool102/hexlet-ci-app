@@ -6,8 +6,15 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: say hello
-        run: make say-hello
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: subdir/package-lock.json
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: do setup
         run: make setup
       - name: do start
