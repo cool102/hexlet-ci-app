@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: say hello
+        run: say-hello
       - name: do setup
         run: make setup
       - name: do start

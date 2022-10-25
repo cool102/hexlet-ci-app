@@ -1,6 +1,7 @@
 setup:
 	install build
-
+say-hello:
+	echo "hello"
 install:
 	npm install
 
