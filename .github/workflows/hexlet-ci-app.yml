@@ -12,10 +12,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm test
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: do setup
         run: make setup
       - name: do start
